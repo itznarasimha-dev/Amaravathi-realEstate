@@ -24,17 +24,23 @@ export function PlotCard({ plot, index = 0 }: { plot: Plot; index?: number }) {
         style={{ background: "#ffffff", border: "1px solid rgba(34,211,238,0.12)" }}
       >
         <Link to="/plots/$plotId" params={{ plotId: plot.id }} className="block">
-
           {/* Image */}
-          <div className="relative overflow-hidden" style={{ aspectRatio: "4/3", background: "#0F2918" }}>
+          <div
+            className="relative overflow-hidden"
+            style={{ aspectRatio: "4/3", background: "#0F2918" }}
+          >
             <img
               src={plot.image}
               alt={plot.title}
               loading="lazy"
               className="h-full w-full object-cover"
               style={{ transition: "transform 0.7s cubic-bezier(0.16,1,0.3,1)" }}
-              onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.transform = "scale(1.07)"; }}
-              onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.transform = "scale(1)"; }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLElement).style.transform = "scale(1.07)";
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLElement).style.transform = "scale(1)";
+              }}
             />
 
             {/* Approval badge */}
@@ -58,11 +64,20 @@ export function PlotCard({ plot, index = 0 }: { plot: Plot; index?: number }) {
             {/* Price overlay */}
             <div
               className="absolute inset-x-0 bottom-0 px-4 pb-4 pt-10"
-              style={{ background: "linear-gradient(to top, rgba(15,41,24,0.97) 0%, rgba(15,41,24,0.65) 55%, transparent 100%)" }}
+              style={{
+                background:
+                  "linear-gradient(to top, rgba(15,41,24,0.97) 0%, rgba(15,41,24,0.65) 55%, transparent 100%)",
+              }}
             >
               <p className="price-tag">{formatINR(plot.price)}</p>
               <p
-                style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem", color: "rgba(240,253,244,0.55)", letterSpacing: "0.06em", marginTop: 2 }}
+                style={{
+                  fontFamily: "var(--font-mono)",
+                  fontSize: "0.65rem",
+                  color: "rgba(240,253,244,0.55)",
+                  letterSpacing: "0.06em",
+                  marginTop: 2,
+                }}
               >
                 ₹{plot.pricePerSqYd.toLocaleString("en-IN")} / sq.yd
               </p>
