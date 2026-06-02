@@ -5,8 +5,8 @@
     { "src": "dist/client/**", "use": "@vercel/static" }
   ],
   "routes": [
-    { "src": "/_next/static/(.*)", "dest": "/dist/client/_next/static/$1" },
-    { "src": "/assets/(.*)", "dest": "/dist/client/assets/$1" },
-    { "src": "/(.*)", "dest": "dist/server/server.js" }
+    { "src": "^/_next/static/(.*)", "dest": "/dist/client/_next/static/$1" },
+    { "src": "^/assets/(.*)", "dest": "/dist/client/assets/$1" },
+    { "src": "^/(.*)", "dest": "/dist/server/server.js" }
   ]
 }
